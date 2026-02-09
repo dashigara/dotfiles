@@ -1,0 +1,2 @@
+# ===== refs =====
+bind refs D ?git branch -d %(ref)
