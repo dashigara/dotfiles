@@ -101,13 +101,41 @@ require("lazy").setup({
         { "kevinhwang91/nvim-hlslens" },
         { "lewis6991/gitsigns.nvim" },
         {
+            -- ## LSPマネージャ(Mason)
+            "mason-org/mason.nvim",
+            opts = {
+                ui = {
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗",
+                    },
+                },
+            },
+        },
+        {
+            -- ## LS自動インストール
+            "mason-org/mason-lspconfig.nvim",
+            opts = {
+                ensure_installed = {
+                    "lua_ls",
+                    "powershell_es",
+                    "biome",
+                },
+            },
+            dependencies = {
+                { "mason-org/mason.nvim", opts = {} },
+                "neovim/nvim-lspconfig",
+            },
+        },
+        {
             -- ## フォーマット
             "stevearc/conform.nvim",
             event = { "BufWritePre" },
             cmd = { "ConformInfo" },
             keys = {
                 {
-                    "<leader>f",
+                    "<S-f>",
                     function()
                         require("conform").format({
                             async = true,
@@ -123,6 +151,16 @@ require("lazy").setup({
                     lua = { "stylua" },
                     javascript = {
                         "prettierd",
+                        "prettier",
+                        stop_after_first = true,
+                    },
+                    typescript = {
+                        "prettierd",
+                        "prettier",
+                        stop_after_first = true,
+                    },
+                    json = {
+                        "biome",
                         "prettier",
                         stop_after_first = true,
                     },
@@ -158,30 +196,15 @@ require("lazy").setup({
             event = { "BufReadPre", "BufNewFile" },
         },
         {
-            -- ## LSPマネージャ(Mason)
-            "mason-org/mason.nvim",
+            -- ## Git Blame 表示
+            "f-person/git-blame.nvim",
+            event = "VeryLazy",
             opts = {
-                ui = {
-                    icons = {
-                        package_installed = "✓",
-                        package_pending = "➜",
-                        package_uninstalled = "✗",
-                    },
-                },
-            },
-        },
-        {
-            -- ## LS自動インストール
-            "mason-org/mason-lspconfig.nvim",
-            opts = {
-                ensure_installed = {
-                    "lua_ls",
-                    "powershell_es",
-                },
-            },
-            dependencies = {
-                { "mason-org/mason.nvim", opts = {} },
-                "neovim/nvim-lspconfig",
+                enabled = true,                                  -- if you want to enable the plugin
+                -- Message Template : <author>, <committer>, <date>, <committer-date>, <summary>, <sha>
+                message_template = " <date> <author> <summary>", -- template for the blame message, check the Message template section for more options
+                date_format = "%Y/%m/%d",                        -- template for the date, check Date format section for more options
+                -- virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
             },
         },
     },
