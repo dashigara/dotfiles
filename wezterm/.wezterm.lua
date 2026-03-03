@@ -18,8 +18,10 @@ config.window_padding = {
     top = 2,
     bottom = 2,
 }
-config.text_background_opacity = 0.2
-config.window_background_opacity = 0.7
+config.text_background_opacity = 0.3
+config.window_background_opacity = 0.8
+
+config.window_decorations = "RESIZE"
 
 --# Key Binding
 config.keys = {
