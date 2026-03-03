@@ -25,7 +25,7 @@ vim.opt.smartindent = true
 vim.opt.belloff = "all"
 -- ターミナルをpwshに
 if vim.loop.os_uname().sysname == "Windows_NT" then
-	vim.opt.shell = "pwsh"
+    vim.opt.shell = "pwsh"
 end
 
 -- ====================

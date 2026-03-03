@@ -135,7 +135,7 @@ require("lazy").setup({
             cmd = { "ConformInfo" },
             keys = {
                 {
-                    "<S-f>",
+                    "<M-S-f>",
                     function()
                         require("conform").format({
                             async = true,

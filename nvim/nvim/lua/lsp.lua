@@ -3,6 +3,15 @@ vim.lsp.enable({
     "lua_ls",
 })
 
+-- ファイル単体で開いたときはLSP有効化後に開きなおす(root_dir問題対策)
+local argv = vim.fn.argv()
+if #argv > 0 then
+    local path = argv[1]
+    if vim.fn.filereadable(path) == 1 then
+        vim.cmd("e")
+    end
+end
+
 -- 言語サーバーがアタッチされた時に呼ばれる
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("my.lsp", {}),
