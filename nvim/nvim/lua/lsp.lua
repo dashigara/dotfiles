@@ -3,7 +3,7 @@ vim.lsp.enable({
     "lua_ls",
 })
 
--- ファイル単体で開いたときはLSP有効化後に開きなおす(root_dir問題対策)
+-- ファイル単体で開いたときはLSP有効化後に開きなおす
 local argv = vim.fn.argv()
 if #argv > 0 then
     local path = argv[1]
@@ -34,6 +34,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         if client:supports_method("textDocument/completion") then
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+            vim.keymap.set("i", "<Tab>", function()
+                if vim.fn.pumvisible() == 1 then
+                    return "<C-y>"
+                else
+                    return "<Tab>"
+                end
+            end, {
+                expr = true,
+                buffer = buf,
+                desc = "Accept the current completion",
+            })
         end
 
         -- 保存時フォーマット設定
@@ -51,6 +62,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end
 
+        -- 確定するまで入力補完を入力状態にしない
+        vim.opt.completeopt = "menuone,noinsert"
         if client:supports_method("textDocument/inlineCompletion") then
             vim.lsp.inline_completion.enable(true, { bufnr = buf })
             vim.keymap.set("i", "<Tab>", function()
@@ -71,7 +84,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.diagnostic.config({
             virtual_text = true,
         })
-        -- 確定するまで入力補完を入力状態にしない
-        vim.opt.completeopt = "menuone,noinsert"
     end,
 })

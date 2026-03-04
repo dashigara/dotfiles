@@ -86,6 +86,9 @@ require("lazy").setup({
             "EdenEast/nightfox.nvim",
             config = function()
                 vim.cmd.colorscheme("nightfox")
+                vim.api.nvim_set_hl(0, "Visual", {
+                    bg = "#B74822",
+                })
             end,
         },
         {

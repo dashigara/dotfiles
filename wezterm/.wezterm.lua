@@ -5,11 +5,6 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices.
 
--- shellをpwshに(windowsのみ)
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.default_prog = { "pwsh.exe" }
-end
-
 --# Colors & Appearance
 config.color_scheme = "Tokyo Night"
 config.window_padding = {
@@ -20,8 +15,20 @@ config.window_padding = {
 }
 config.text_background_opacity = 0.3
 config.window_background_opacity = 0.8
-
 config.window_decorations = "RESIZE"
+
+--# Launching Programs
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    config.default_prog = { "pwsh.exe" }
+end
+
+--# Fonts
+config.font = wezterm.font_with_fallback({
+    "JetBrains Mono",
+    "HackGen Console NF",
+})
+config.font_size = 10
+config.force_reverse_video_cursor = true
 
 --# Key Binding
 config.keys = {

@@ -7,7 +7,7 @@ vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>")
 vim.keymap.set("n", "<C-p>", ":bnext<CR>")
 vim.keymap.set("n", "<C-S-p>", ":bprevious<CR>")
 -- バッファ閉じる
-vim.keymap.set("n", "<C-S-w>", ":bdelete<CR>", {
+vim.keymap.set("n", "<C-q>", ":bdelete<CR>", {
     remap = true,
 })
 -- 上下移動基準を画面表示に
