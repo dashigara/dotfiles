@@ -1,2 +1,3 @@
 # ===== refs =====
 bind refs D ?git branch -d %(ref)
+set refs-view-date = relative
