@@ -3,10 +3,12 @@ final_space: true
 version: 4
 palette:
   white: "#FFFFFF"
-  success: "#2bed5f"
+  path: "#67f570"
+  success: "#44e3d0"
   error: "#ff6347"
   git: "#ffa500"
-  session: "#0af0d5"
+  session: "#ffffff"
+  cmd: "#f2f567"
 blocks:
   - type: "prompt"
     alignment: "left"
@@ -20,17 +22,17 @@ blocks:
         style: "plain"
         template: " [{{ if gt .Code 0 }}\uf00d {{ reason .Code }}{{ else }}\uf00c{{ end }}]"
       - type: "path"
-        foreground: "p:white"
+        foreground: "p:path"
         options:
           style: "full"
         style: "plain"
-        template: " [{{ .Path }}]"
+        template: "[{{ .Path }}]"
       - type: "git"
         foreground: "p:git"
         options:
           fetch_upstream_icon: true
         style: "plain"
-        template: " [{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}]"
+        template: "[{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}]"
   - type: "prompt"
     alignment: "left"
     newline: true
@@ -41,4 +43,5 @@ blocks:
         template: " {{ .UserName }}@{{ .HostName}} "
       - type: "text"
         template: "\u279c"
+        foreground: "p:cmd"
         style: "plain"
