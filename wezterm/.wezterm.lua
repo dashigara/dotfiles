@@ -27,7 +27,7 @@ config.font = wezterm.font_with_fallback({
     "JetBrains Mono",
     "HackGen Console NF",
 })
-config.font_size = 10
+config.font_size = 9
 config.force_reverse_video_cursor = true
 
 --# Key Binding
