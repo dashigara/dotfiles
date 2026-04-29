@@ -20,39 +20,39 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        {
-            -- ## ダッシュボード設定
-            "nvimdev/dashboard-nvim",
-            event = "VimEnter",
-            config = function()
-                require("dashboard").setup({
-                    theme = "hyper",
-                    letter_list = "abcdefgmnopqrstuvwxyz",
-                    config = {
-                        header = {
-                            "                                                  ",
-                            "███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
-                            "████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║",
-                            "██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║",
-                            "██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║",
-                            "██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
-                            "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
-                            "                                                  ",
-                        },
-                        shortcut = {
-                            {
-                                desc = "new file",
-                                group = "@variable",
-                                key = "i",
-                                action = "enew",
-                            },
-                        },
-                        disable_move = true,
-                    },
-                })
-            end,
-            dependencies = { { "nvim-tree/nvim-web-devicons" } },
-        },
+        -- {
+        --     -- ## ダッシュボード設定
+        --     "nvimdev/dashboard-nvim",
+        --     event = "VimEnter",
+        --     config = function()
+        --         require("dashboard").setup({
+        --             theme = "hyper",
+        --             letter_list = "abcdefgmnopqrstuvwxyz",
+        --             config = {
+        --                 header = {
+        --                     "                                                  ",
+        --                     "███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
+        --                     "████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║",
+        --                     "██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║",
+        --                     "██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║",
+        --                     "██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
+        --                     "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
+        --                     "                                                  ",
+        --                 },
+        --                 shortcut = {
+        --                     {
+        --                         desc = "new file",
+        --                         group = "@variable",
+        --                         key = "i",
+        --                         action = "enew",
+        --                     },
+        --                 },
+        --                 disable_move = true,
+        --             },
+        --         })
+        --     end,
+        --     dependencies = { { "nvim-tree/nvim-web-devicons" } },
+        -- },
         {
             -- ## Lualine
             "nvim-lualine/lualine.nvim",
