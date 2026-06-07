@@ -7,6 +7,7 @@ local config = wezterm.config_builder()
 
 --# Colors & Appearance
 config.color_scheme = "Tokyo Night"
+-- config.color_scheme = 'Galaxy'
 config.window_padding = {
     left = 4,
     right = 4,
@@ -14,7 +15,7 @@ config.window_padding = {
     bottom = 2,
 }
 config.text_background_opacity = 0.3
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.7
 config.window_decorations = "RESIZE"
 
 --# Launching Programs
