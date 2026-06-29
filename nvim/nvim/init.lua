@@ -27,6 +27,15 @@ vim.opt.belloff = "all"
 if vim.loop.os_uname().sysname == "Windows_NT" then
     vim.opt.shell = "pwsh"
 end
+-- treesitter
+vim.treesitter.start = (function(wrapped)
+    return function(bufnr, lang)
+	    lang = lang or vim.fn.getbufvar(bufnr or '', '&filetype')
+	    pcall(wrapped, bufnr, lang)
+    end
+    end)(vim.treesitter.start)
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldmethod = "expr"
 
 -- ====================
 -- ファイル操作設定
