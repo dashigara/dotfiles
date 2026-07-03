@@ -20,39 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        -- {
-        --     -- ## ダッシュボード設定
-        --     "nvimdev/dashboard-nvim",
-        --     event = "VimEnter",
-        --     config = function()
-        --         require("dashboard").setup({
-        --             theme = "hyper",
-        --             letter_list = "abcdefgmnopqrstuvwxyz",
-        --             config = {
-        --                 header = {
-        --                     "                                                  ",
-        --                     "███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
-        --                     "████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║",
-        --                     "██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║",
-        --                     "██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║",
-        --                     "██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
-        --                     "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
-        --                     "                                                  ",
-        --                 },
-        --                 shortcut = {
-        --                     {
-        --                         desc = "new file",
-        --                         group = "@variable",
-        --                         key = "i",
-        --                         action = "enew",
-        --                     },
-        --                 },
-        --                 disable_move = true,
-        --             },
-        --         })
-        --     end,
-        --     dependencies = { { "nvim-tree/nvim-web-devicons" } },
-        -- },
         {
             -- ## Lualine
             "nvim-lualine/lualine.nvim",
@@ -114,21 +81,6 @@ require("lazy").setup({
                         package_uninstalled = "✗",
                     },
                 },
-            },
-        },
-        {
-            -- ## LS自動インストール
-            "mason-org/mason-lspconfig.nvim",
-            opts = {
-                ensure_installed = {
-                    "lua_ls",
-                    "powershell_es",
-                    "biome",
-                },
-            },
-            dependencies = {
-                { "mason-org/mason.nvim", opts = {} },
-                "neovim/nvim-lspconfig",
             },
         },
         {
