@@ -4,8 +4,8 @@
 -- ESC連打でハイライト解除
 vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>")
 -- バッファ切り替え
-vim.keymap.set("n", "<C-p>", ":bnext<CR>")
-vim.keymap.set("n", "<C-S-p>", ":bprevious<CR>")
+vim.keymap.set("n", "<C-p>", ":BufferNext<CR>")
+vim.keymap.set("n", "<C-o>", ":BufferPrevious<CR>")
 -- バッファ閉じる
 vim.keymap.set("n", "<C-q>", ":bdelete<CR>", {
     remap = true,
@@ -32,7 +32,7 @@ vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 -- git status表示
 vim.keymap.set("n", "<leader>g", ":Neotree float git_status<CR>")
 
--- -- telescope
+-- telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fa", function()
@@ -41,3 +41,7 @@ end, { desc = "Telescope find ALL files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+
+-- barbar
+vim.keymap.set("n", "<C-M-Right>", ":BufferMoveNext<CR>")
+vim.keymap.set("n", "<C-M-Left>", ":BufferMovePrevious<CR>")
