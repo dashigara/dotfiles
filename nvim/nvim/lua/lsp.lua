@@ -34,6 +34,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         if client:supports_method("textDocument/completion") then
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+            vim.keymap.set("i", "<C-@>", function()
+                vim.lsp.completion.get()
+            end, { buffer = buf, desc = "LSP completion" })
+
             vim.keymap.set("i", "<Tab>", function()
                 if vim.fn.pumvisible() == 1 then
                     return "<C-y>"

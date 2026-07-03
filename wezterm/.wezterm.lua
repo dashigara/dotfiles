@@ -42,6 +42,14 @@ config.keys = {
         mods = "CTRL",
         action = wezterm.action.DisableDefaultAssignment,
     },
+    {
+        key = "Space",
+        mods = "CTRL",
+        action = wezterm.action.SendKey {
+            key = "@",
+            mods = "CTRL"
+        }
+    },
 }
 
 -- Finally, return the configuration to wezterm:

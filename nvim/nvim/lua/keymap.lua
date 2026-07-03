@@ -3,9 +3,6 @@
 -- ====================
 -- ESC連打でハイライト解除
 vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>")
--- バッファ切り替え
-vim.keymap.set("n", "<C-p>", ":BufferNext<CR>")
-vim.keymap.set("n", "<C-o>", ":BufferPrevious<CR>")
 -- バッファ閉じる
 vim.keymap.set("n", "<C-q>", ":bdelete<CR>", {
     remap = true,
@@ -45,3 +42,6 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 -- barbar
 vim.keymap.set("n", "<C-M-Right>", ":BufferMoveNext<CR>")
 vim.keymap.set("n", "<C-M-Left>", ":BufferMovePrevious<CR>")
+-- バッファ切り替え
+vim.keymap.set("n", "<C-p>", ":BufferNext<CR>")
+vim.keymap.set("n", "<C-o>", ":BufferPrevious<CR>")
