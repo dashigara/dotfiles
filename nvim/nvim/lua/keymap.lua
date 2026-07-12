@@ -22,7 +22,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- 削除系のキーで変更したのをブラックホールレジスタに
-vim.keymap.set("n", "d", "\"_d")
 vim.keymap.set("v", "d", "\"_d")
 vim.keymap.set("n", "D", "\"_D")
 vim.keymap.set("v", "D", "\"_D")
