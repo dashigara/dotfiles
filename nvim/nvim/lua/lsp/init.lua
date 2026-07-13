@@ -59,19 +59,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         -- 保存時フォーマット設定
-        if
-            not client:supports_method("textDocument/willSaveWaitUntil")
-            and client:supports_method("textDocument/formatting")
-        then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
-                buffer = args.buf,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
-                end,
-            })
-        end
-
+        -- if
+        --     not client:supports_method("textDocument/willSaveWaitUntil")
+        --     and client:supports_method("textDocument/formatting")
+        -- then
+        --     vim.api.nvim_create_autocmd("BufWritePre", {
+        --         group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
+        --         buffer = args.buf,
+        --         callback = function()
+        --             vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+        --         end,
+        --     })
+        -- end
+        --
         -- 確定するまで入力補完を入力状態にしない
         vim.opt.completeopt = "menuone,noinsert"
         if client:supports_method("textDocument/inlineCompletion") then
