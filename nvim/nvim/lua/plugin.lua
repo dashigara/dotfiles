@@ -27,6 +27,8 @@ require("lazy").setup({
                 require("lualine").setup({
                     options = {
                         theme = "onedark",
+                        section_separators = { left = "", right = "" },
+                        component_separators = { left = "|", right = "|" },
                     },
                 })
             end,
@@ -126,7 +128,7 @@ require("lazy").setup({
                 format_on_save = {
                     lsp_format = "fallback",
                     timeout_ms = 500,
-                }
+                },
             },
         },
         { "RRethy/vim-illuminate" },
@@ -159,10 +161,10 @@ require("lazy").setup({
             "f-person/git-blame.nvim",
             event = "VeryLazy",
             opts = {
-                enabled = true,                                  -- if you want to enable the plugin
+                enabled = true, -- if you want to enable the plugin
                 -- Message Template : <author>, <committer>, <date>, <committer-date>, <summary>, <sha>
                 message_template = " <date> <author> <summary>", -- template for the blame message, check the Message template section for more options
-                date_format = "%Y/%m/%d",                        -- template for the date, check Date format section for more options
+                date_format = "%Y/%m/%d", -- template for the date, check Date format section for more options
                 -- virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
             },
         },
