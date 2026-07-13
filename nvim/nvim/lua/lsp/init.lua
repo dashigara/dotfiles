@@ -1,6 +1,6 @@
 vim.lsp.enable({
-    -- nvim-lspconfig で"lua_ls"という名前で設定したプリセットが読まれる
     "lua_ls",
+    "ts_ls"
 })
 
 -- ファイル単体で開いたときはLSP有効化後に開きなおす
@@ -22,16 +22,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- デフォルトで設定されている言語サーバー用キーバインドに設定を追加する
         -- See https://neovim.io/doc/user/lsp.html#lsp-defaults
         -- 言語サーバーのクライアントがLSPで定められた機能を実装していたら設定を追加するという流れ
+
+        -- 定義へ移動
         if client:supports_method("textDocument/definition") then
             vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, { buffer = buf, desc = "Go to definition" })
         end
 
+        -- リネームをF2に
+        vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { buffer = buf, desc = "Reference rename" })
+
+        -- カーソル下の情報を表示
         if client:supports_method("textDocument/hover") then
             vim.keymap.set("n", "<leader>k", function()
                 vim.lsp.buf.hover({ border = "single" })
             end, { buffer = buf, desc = "Show hover documentation" })
         end
 
+        -- 補完
         if client:supports_method("textDocument/completion") then
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
             vim.keymap.set("i", "<C-@>", function()
@@ -52,7 +59,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         -- 保存時フォーマット設定
-        -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
         if
             not client:supports_method("textDocument/willSaveWaitUntil")
             and client:supports_method("textDocument/formatting")
