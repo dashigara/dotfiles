@@ -86,6 +86,17 @@ require("lazy").setup({
             },
         },
         {
+            "mason-org/mason-Lspconfig.nvim",
+            opts = {
+                automatic_enable = true,
+
+                dependencies = {
+                    { "mason-org/mason.nvim", opts = 0 },
+                    "neovim/nvim-Lspconfig",
+                },
+            },
+        },
+        {
             -- ## フォーマット
             "stevearc/conform.nvim",
             event = { "BufWritePre" },
