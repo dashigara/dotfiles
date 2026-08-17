@@ -33,7 +33,7 @@ blocks:
           fetch_status: true
           fetch_push_status: true
         style: "plain"
-        template: "[{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}{{ if .BranchStatus }} {{ .BranchStatus }}{{end}}]"
+        template: "[{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}]{{ if or (gt .PushBehind 0) (gt .PushAhead 0) }}{{ .BranchStatus }}{{end}}"
   - type: "prompt"
     alignment: "left"
     newline: true
