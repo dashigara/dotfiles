@@ -3,15 +3,30 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 Set-Alias -Name which -Value where.exe
 
-function tgref()
+function tigref()
 { tig refs 
 }
-Set-Alias -Name tr -Value tgref
+Set-Alias -Name tr -Value tigref
 
-function tgsts()
+function tigsts()
 { tig status
 }
-Set-Alias -Name ts -Value tgsts
+Set-Alias -Name ts -Value tigsts
+
+function gitpull()
+{ git pull
+}
+Set-Alias -Force -Name gp -Value gitpull
+
+function gitfetch()
+{ git fetch
+}
+Set-Alias -Name gf -Value gitfetch
+
+function gitfetchprune()
+{ git fetch --prune
+}
+Set-Alias -Name gfp -Value gitfetchprune
 
 function excur()
 { explorer . 
