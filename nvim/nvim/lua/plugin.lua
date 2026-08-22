@@ -69,9 +69,30 @@ require("lazy").setup({
             end,
             opts = {},
         },
-        { "petertriho/nvim-scrollbar" },
-        { "kevinhwang91/nvim-hlslens" },
-        { "lewis6991/gitsigns.nvim" },
+        {
+            "petertriho/nvim-scrollbar",
+            config = function()
+                require("scrollbar").setup({
+                    handle = {
+                        color = "#DDDDDD",
+                    },
+                })
+            end,
+        },
+        {
+            "kevinhwang91/nvim-hlslens",
+            config = function()
+                require("hlslens").setup()
+                require("scrollbar.handlers.search").setup()
+            end,
+        },
+        {
+            "lewis6991/gitsigns.nvim",
+            config = function()
+                require("gitsigns").setup()
+                require("scrollbar.handlers.gitsigns").setup()
+            end,
+        },
         {
             -- ## LSPマネージャ(Mason)
             "mason-org/mason.nvim",
