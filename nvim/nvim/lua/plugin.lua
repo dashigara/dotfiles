@@ -195,7 +195,7 @@ require("lazy").setup({
             build = ":TSUpdate",
             config = function()
                 vim.api.nvim_create_autocmd("FileType", {
-                    pattern = { "nim" },
+                    pattern = { "nim", "yaml", "toml" },
                     callback = function()
                         vim.treesitter.start()
                         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- folds
