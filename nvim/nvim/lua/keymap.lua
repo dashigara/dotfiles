@@ -32,6 +32,11 @@ vim.keymap.set("v", "C", '"_C')
 vim.keymap.set("n", "x", '"_x')
 vim.keymap.set("n", "X", '"_X')
 
+-- vim.diagnostics
+vim.keymap.set("n", "<leader>ke", vim.diagnostic.open_float, {
+    desc = "Show diagnostic float window",
+})
+
 -- ====================
 -- Plugin
 -- ====================

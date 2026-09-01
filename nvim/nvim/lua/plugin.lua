@@ -193,28 +193,20 @@ require("lazy").setup({
             "nvim-treesitter/nvim-treesitter",
             lazy = false,
             build = ":TSUpdate",
-            config = function()
-                vim.api.nvim_create_autocmd("FileType", {
-                    pattern = { "nim", "yaml", "toml" },
-                    callback = function()
-                        vim.treesitter.start()
-                        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- folds
-                        vim.wo.foldmethod = "expr"
-                        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- indentation
-                    end,
-                })
-            end,
         },
         {
             -- ## Git Blame 表示
             "f-person/git-blame.nvim",
             event = "VeryLazy",
             opts = {
-                enabled = true, -- if you want to enable the plugin
+                enabled = 1, -- if you want to enable the plugin
                 -- Message Template : <author>, <committer>, <date>, <committer-date>, <summary>, <sha>
-                message_template = " <date> <author> <summary>", -- template for the blame message, check the Message template section for more options
-                date_format = "%Y/%m/%d", -- template for the date, check Date format section for more options
+                -- message_template = " <date> <author> <summary>", -- template for the blame message, check the Message template section for more options
+                -- date_format = "%Y/%m/%d", -- template for the date, check Date format section for more options
                 -- virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
+                display_virtual_text = 1,
+                ignored_filetypes = {},
+                delay = 250,
             },
         },
     },

@@ -1,6 +1,6 @@
 vim.lsp.enable({
     "lua_ls",
-    "ts_ls"
+    "ts_ls",
 })
 
 -- ファイル単体で開いたときはLSP有効化後に開きなおす
@@ -23,22 +23,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- See https://neovim.io/doc/user/lsp.html#lsp-defaults
         -- 言語サーバーのクライアントがLSPで定められた機能を実装していたら設定を追加するという流れ
 
-        -- 定義へ移動
+        -- # F12 : 定義へ移動
         if client:supports_method("textDocument/definition") then
             vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, { buffer = buf, desc = "Go to definition" })
         end
 
-        -- リネームをF2に
+        -- # F2 : リネーム
         vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { buffer = buf, desc = "Reference rename" })
 
-        -- カーソル下の情報を表示
+        -- # <leader>k : カーソル下の情報を表示
         if client:supports_method("textDocument/hover") then
             vim.keymap.set("n", "<leader>k", function()
                 vim.lsp.buf.hover({ border = "single" })
             end, { buffer = buf, desc = "Show hover documentation" })
         end
 
-        -- 補完
+        -- # Ctrl + Space : 補完
         if client:supports_method("textDocument/completion") then
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
             vim.keymap.set("i", "<C-@>", function()
