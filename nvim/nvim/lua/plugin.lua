@@ -209,6 +209,7 @@ require("lazy").setup({
                 delay = 250,
             },
         },
+        { "rust-lang/rust.vim" },
     },
 
     -- カラースキーム

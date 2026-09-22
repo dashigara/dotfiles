@@ -19,14 +19,9 @@ function gitpull()
 Set-Alias -Force -Name gp -Value gitpull
 
 function gitfetch()
-{ git fetch
+{ git fetch @args
 }
 Set-Alias -Name gf -Value gitfetch
-
-function gitfetchprune()
-{ git fetch --prune
-}
-Set-Alias -Name gfp -Value gitfetchprune
 
 function excur()
 { explorer . 
