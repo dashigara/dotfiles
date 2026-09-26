@@ -3,6 +3,13 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 Set-Alias -Name which -Value where.exe
 
+# ========================================
+# Alias
+# ========================================
+
+# ----------------------------------------
+# tig
+# ----------------------------------------
 function tigref()
 { tig refs 
 }
@@ -13,6 +20,9 @@ function tigsts()
 }
 Set-Alias -Name ts -Value tigsts
 
+# ----------------------------------------
+# git
+# ----------------------------------------
 function gitpull()
 { git pull
 }
@@ -23,10 +33,17 @@ function gitfetch()
 }
 Set-Alias -Name gf -Value gitfetch
 
+# ----------------------------------------
+# misc
+# ----------------------------------------
 function excur()
 { explorer . 
 }
 Set-Alias -Name e -Value excur
+function miserun()
+{ mise run @args
+}
+Set-Alias -Name mr -Value miserun
 
 Set-PSReadLineOption -Colors @{
     Parameter = "#7dcfff"
