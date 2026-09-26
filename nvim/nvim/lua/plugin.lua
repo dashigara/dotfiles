@@ -210,6 +210,12 @@ require("lazy").setup({
             },
         },
         { "rust-lang/rust.vim" },
+        {
+            -- ## Markdown 描画
+            "MeanderingProgrammer/render-markdown.nvim",
+            dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
+            opts = {},
+        },
     },
 
     -- カラースキーム
