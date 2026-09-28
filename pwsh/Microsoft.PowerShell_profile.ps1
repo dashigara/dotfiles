@@ -45,6 +45,8 @@ function miserun()
 }
 Set-Alias -Name mr -Value miserun
 
+Set-Alias -Name n -Value nvim
+
 Set-PSReadLineOption -Colors @{
     Parameter = "#7dcfff"
 }
