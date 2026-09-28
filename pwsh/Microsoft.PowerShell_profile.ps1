@@ -1,8 +1,6 @@
 oh-my-posh init pwsh --config $env:USERPROFILE/.posh/config.yaml | Invoke-Expression
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
-Set-Alias -Name which -Value where.exe
-
 # ========================================
 # Alias
 # ========================================
@@ -36,6 +34,8 @@ Set-Alias -Name gf -Value gitfetch
 # ----------------------------------------
 # misc
 # ----------------------------------------
+Set-Alias -Name which -Value where.exe
+
 function excur()
 { explorer . 
 }
