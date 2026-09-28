@@ -9,10 +9,10 @@ local config = wezterm.config_builder()
 config.color_scheme = "Tokyo Night"
 -- config.color_scheme = 'Galaxy'
 config.window_padding = {
-    left = 4,
-    right = 4,
-    top = 2,
-    bottom = 2,
+	left = 4,
+	right = 4,
+	top = 2,
+	bottom = 2,
 }
 config.text_background_opacity = 0.3
 config.window_background_opacity = 0.7
@@ -20,36 +20,37 @@ config.window_decorations = "RESIZE"
 
 --# Launching Programs
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.default_prog = { "pwsh.exe" }
+	config.default_prog = { "pwsh.exe" }
 end
 
 --# Fonts
 config.font = wezterm.font_with_fallback({
-    "JetBrains Mono",
-    "HackGen Console NF",
+	"JetBrains Mono",
+	"Symbols Nerd Font Mono",
+	"HackGen Console NF",
 })
 config.font_size = 9
 config.force_reverse_video_cursor = true
 
 --# Key Binding
 config.keys = {
-    {
-        key = "F1",
-        action = wezterm.action.ActivateCommandPalette,
-    },
-    {
-        key = "P",
-        mods = "CTRL",
-        action = wezterm.action.DisableDefaultAssignment,
-    },
-    {
-        key = "Space",
-        mods = "CTRL",
-        action = wezterm.action.SendKey {
-            key = "@",
-            mods = "CTRL"
-        }
-    },
+	{
+		key = "F1",
+		action = wezterm.action.ActivateCommandPalette,
+	},
+	{
+		key = "P",
+		mods = "CTRL",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "Space",
+		mods = "CTRL",
+		action = wezterm.action.SendKey({
+			key = "@",
+			mods = "CTRL",
+		}),
+	},
 }
 
 -- Finally, return the configuration to wezterm:
