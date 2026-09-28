@@ -40,6 +40,13 @@ function excur()
 { explorer . 
 }
 Set-Alias -Name e -Value excur
+
+function mkdirAndCd()
+{
+    mkdir @args && Set-Location @args
+}
+Set-Alias -Name mkcd -Value mkdirAndCd
+
 function miserun()
 { mise run @args
 }
