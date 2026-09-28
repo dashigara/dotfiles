@@ -22,15 +22,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- 削除系のキーで変更したのをブラックホールレジスタに
-vim.keymap.set("v", "d", '"_d')
-vim.keymap.set("n", "D", '"_D')
-vim.keymap.set("v", "D", '"_D')
-vim.keymap.set("n", "c", '"_c')
-vim.keymap.set("v", "c", '"_c')
-vim.keymap.set("n", "C", '"_C')
-vim.keymap.set("v", "C", '"_C')
+vim.keymap.set({ "n", "v" }, "d", '"_d')
+vim.keymap.set({ "n", "v" }, "D", '"_D')
+vim.keymap.set({ "n", "v" }, "c", '"_c')
+vim.keymap.set({ "n", "v" }, "C", '"_C')
 vim.keymap.set("n", "x", '"_x')
 vim.keymap.set("n", "X", '"_X')
+-- ddだけは使う
+vim.keymap.set("n", "dd", "dd", { remap = false })
 
 -- vim.diagnostics
 vim.keymap.set("n", "<leader>ke", vim.diagnostic.open_float, {
