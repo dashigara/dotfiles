@@ -37,7 +37,14 @@ Set-Alias -Name gf -Value gitfetch
 Set-Alias -Name which -Value where.exe
 
 function excur()
-{ explorer . 
+{ 
+    if ($args.Length -eq 0)
+    {
+        explorer .
+    } else
+    {
+        explorer @args
+    }
 }
 Set-Alias -Name e -Value excur
 
