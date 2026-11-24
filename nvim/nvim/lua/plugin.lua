@@ -73,8 +73,23 @@ require("lazy").setup({
             "petertriho/nvim-scrollbar",
             config = function()
                 require("scrollbar").setup({
-                    handle = {
-                        color = "#DDDDDD",
+                    providers = {
+                        search = { incsearch = true },
+                        marks = { numbers = true },
+                        gitsigns = true,
+                        mini_diff = true,
+                    },
+                    scrollbar = {
+                        preset = "eclipse",
+                        thumb = {
+                            highlight = {
+                                bg = "#ffffff",
+                                blend = 20,
+                            },
+                        },
+                    },
+                    minimap = {
+                        enabled = false,
                     },
                 })
             end,
@@ -83,14 +98,12 @@ require("lazy").setup({
             "kevinhwang91/nvim-hlslens",
             config = function()
                 require("hlslens").setup()
-                require("scrollbar.handlers.search").setup()
             end,
         },
         {
             "lewis6991/gitsigns.nvim",
             config = function()
                 require("gitsigns").setup()
-                require("scrollbar.handlers.gitsigns").setup()
             end,
         },
         {
